@@ -1,7 +1,7 @@
 const { readFile, writeFile } = require('fs');
 
-const login = (user, pass) => {
-  if (!(user && pass)) {
+const login = (username, pass) => {
+  if (!(username && pass)) {
     console.log('username or password need to be provied');
     return;
   }
@@ -11,7 +11,7 @@ const login = (user, pass) => {
 
     if (err) return console.log(err);
 
-    const checkUser = data.find((usr) => usr.username === user && usr.pass === pass);
+    const checkUser = data.find((usr) => usr.username === username && usr.pass === pass);
 
     if (!checkUser) {
       return console.log('User name or password incorrect');
@@ -26,8 +26,8 @@ const registrate = (username, pass) => {
     return console.log('a username and a password must be provided');
   }
 
-  readFile('./database.json', (err, resp) => {
-    const data = JSON.parse(resp);
+  readFile('./database.json', (err, res) => {
+    const data = JSON.parse(res);
 
     if (err) return console.log(err);
 
@@ -48,5 +48,5 @@ const registrate = (username, pass) => {
   });
 };
 
-login('eskalo', 'es');
-registrate('blacksheep', '4269');
+// login('eskalo', 'es');
+registrate('blacksheep', '426925');
